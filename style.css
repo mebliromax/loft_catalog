@@ -13,7 +13,6 @@ body, html {
     padding: 20px 0;
 }
 
-
 .page {
     width: 95vw;          
     max-width: 1122px;    
@@ -25,7 +24,6 @@ body, html {
     position: relative;
     overflow: hidden;
     
-   
     --w: min(95vw, 1122px); 
 }
 
@@ -43,7 +41,7 @@ body, html {
     right: 30px;
     width: 50px;
     height: 50px;
-    background-color: #1C1C1E;
+    background-color: #1C1C1E; 
     border: none;
     border-radius: 50%; 
     display: flex;
@@ -61,7 +59,7 @@ body, html {
 .back-to-index-btn svg {
     width: 22px;
     height: 22px;
-    fill: #FAD200;
+    fill: #FAD200; 
     transform: rotate(270deg);
     transition: fill 0.3s ease;
 }
@@ -69,10 +67,12 @@ body, html {
 .back-to-index-btn:hover {
     background-color: #FAD200;
     transform: scale(1.1) translateY(-3px);
+} 
 
 .back-to-index-btn:hover svg {
     fill: #1C1C1E; 
 }
+
 
 .back-to-index-btn.visible {
     opacity: 1;
