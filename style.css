@@ -60,7 +60,7 @@ body, html {
     width: 22px;
     height: 22px;
     fill: #FAD200; 
-    transform: rotate(90deg);
+    transform: rotate(0deg);
     transition: fill 0.3s ease;
 }
 
