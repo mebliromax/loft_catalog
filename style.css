@@ -34,7 +34,6 @@ body, html {
     display: block;
 }
 
-
 .back-to-index-btn {
     position: fixed;
     bottom: 30px;
@@ -67,14 +66,13 @@ body, html {
 .back-to-index-btn:hover {
     background-color: #FAD200;
     transform: scale(1.1) translateY(-3px);
-} 
+}
 
 .back-to-index-btn:hover svg {
     fill: #1C1C1E; 
 }
 
-
 .back-to-index-btn.visible {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
