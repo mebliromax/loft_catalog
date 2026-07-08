@@ -13,8 +13,6 @@ body, html {
     padding: 20px 0;
 }
 
-/* Налаштування альбомного А4 */
-/* 1. ДОДАЄМО ЗМІННУ В ТВІЙ ОСНОВНИЙ КЛАС .page */
 .page {
     width: 95vw;          
     max-width: 1122px;    
@@ -26,16 +24,16 @@ body, html {
     position: relative;
     overflow: hidden;
     
-    /* МАГІЯ ТУТ: ця змінна завжди дорівнює поточній ширині аркуша */
     --w: min(95vw, 1122px); 
 }
+
 .page img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
-/* 2. СТОРІНКА ЗМІСТУ */
+
 .content-page {
     background-image: url('img/page-02.2.jpg'); 
     background-size: 100% 100%; /* Жорстко розтягуємо по краях */
@@ -44,14 +42,11 @@ body, html {
     justify-content: center; 
     align-items: flex-start;
     
-    /* Вираховуємо старі 42px пропорційно до поточної ширини */
     padding-top: calc(var(--w) * 0.0374);  
 }
 
-/* 3. СІТКА */
 .index-grid {
     display: grid;
-    /* Горизонтальні розміри чудово працюють у звичайних відсотках */
     grid-template-columns: 31.8% 30.0% 28.9%; 
     gap: 0 3.12%; 
     width: 100%;
@@ -63,7 +58,7 @@ body, html {
     flex-direction: column;
 }
 
-/* 4. ПОСИЛАННЯ (назви столів) */
+/* ПОСИЛАННЯ (назви столів у змісті) */
 .column a {
     text-decoration: none; 
     color: #000000 !important;
@@ -73,10 +68,9 @@ body, html {
     align-items: center;
     transition: 0.2s;
     
-    /* Замінюємо cqw на математичні пропорції від ширини аркуша */
-    font-size: calc(var(--w) * 0.0267);    /* Це твої старі 30px */
-    height: calc(var(--w) * 0.0606);       /* Це твої старі 68px */
-    padding-left: calc(var(--w) * 0.0490); /* Це твої старі 55px */
+    font-size: calc(var(--w) * 0.0267);    
+    height: calc(var(--w) * 0.0606);      
+    padding-left: calc(var(--w) * 0.0490); 
 }
 
 .column a:hover {
@@ -86,55 +80,57 @@ body, html {
 .column a:visited {
     color: #000 !important;
 }
+
+.column:nth-child(1) a:hover,
+.column:nth-child(3) a:hover {
+    color: #FAD200 !important; 
+}
+
+.column:nth-child(2) a:hover {
+    color: #ffffff !important; 
+    text-shadow: 0 0 5px rgba(0,0,0,0.2); 
+}
+
 .back-to-index-btn {
     position: fixed;
     bottom: 30px;
     right: 30px;
     width: 50px;
     height: 50px;
-    background-color: rgba(255, 255, 255, 0.8); /* Білий напівпрозорий фон */
-    border: 1px solid #ccc;
-    border-radius: 50%; /* Робимо кнопку круглою */
+    background-color: #1C1C1E; 
+    border: none;
+    border-radius: 50%; 
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    z-index: 1000; /* Щоб кнопка була поверх усіх сторінок */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     transition: all 0.3s ease;
-    opacity: 0; /* Спочатку вона невидима */
+    opacity: 0;
     visibility: hidden;
+    cursor: pointer;
 }
 
 .back-to-index-btn svg {
-    width: 24px;
-    height: 24px;
-    fill: #333; /* Колір стрілки */
-    transform: rotate(90deg); /* Повертаємо стрілку вгору */
+    width: 22px;
+    height: 22px;
+    fill: #FAD200; 
+    transform: rotate(270deg);
+    transition: fill 0.3s ease;
 }
 
 .back-to-index-btn:hover {
-    background-color: #FAD200; /* Твій акцентний колір при наведенні */
-    transform: scale(1.1);
+    background-color: #FAD200; 
+    transform: scale(1.1) translateY(-3px); 
 }
 
 .back-to-index-btn:hover svg {
-    fill: #fff;
+    fill: #1C1C1E; 
 }
 
-/* Клас, який буде додавати JavaScript, коли треба показати кнопку */
+
 .back-to-index-btn.visible {
     opacity: 1;
     visibility: visible;
-}
-/* Загальний колір при наведенні для 1-ї та 3-ї колонок */
-.column:nth-child(1) a:hover,
-.column:nth-child(3) a:hover {
-    color: #FAD200 !important; /* Жовтий/Помаранчевий */
-}
-
-/* СПЕЦІАЛЬНИЙ КОЛІР ДЛЯ СЕРЕДНЬОЇ (ЖОВТОЇ) КОЛОНКИ */
-.column:nth-child(2) a:hover {
-    color: #ffffff !important; /* БІЛИЙ при наведенні */
-    text-shadow: 0 0 5px rgba(0,0,0,0.2); /* Легка тінь, щоб текст був ще чіткішим */
 }
