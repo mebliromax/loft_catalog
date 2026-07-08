@@ -53,6 +53,7 @@ body, html {
     opacity: 0; 
     visibility: hidden;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .back-to-index-btn svg {
